@@ -1,0 +1,809 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head id="Head1"><meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"><title>
+	Online Document Search.......Department of Registration and Stamps
+</title><link href="StyleSheet/StyleSheet.css" rel="stylesheet" type="text/css"><link href="StyleSheet/style.css" rel="stylesheet" type="text/css"><link href="StyleSheet/StyleSheet2.css" rel="stylesheet" type="text/css">
+    
+    <!--For Marathi KeyBoard Start-->
+    <script type="text/javascript">
+
+        var devExists = false;
+        var devEditExists = false;
+        var doctype = true;
+        var formName = "";
+        var textAreaName = "";
+        var inputModeRadioName = "";
+        var textFieldArr = new Array();
+        var comments = new Array();
+        var commentDivs = new Array();
+        var rteArr = new Array();
+        var divRelativePos = false;
+        var acEnabled = false;
+        var dx = false;  
+        
+    </script>
+    <script type="text/javascript">
+        function NewWindowCall(val) {
+            //    window.open('wfReport.aspx?IndexClick='+val+'', '_blank', 'width=700,height=500,toolbar=no,location=yes,directories=yes,status=yes,menubar=no,scrollbars=yes,copyhistory=yes,modal=yes,resizable = yes');
+            window.open('HtmlReport.aspx?IndexClick=' + val + '', '_blank', 'width=700,height=500,toolbar=no,location=yes,directories=yes,status=yes,menubar=no,scrollbars=yes,copyhistory=yes,modal=yes,resizable = yes');
+        }
+
+//        function OnSelectedIndexChange() {
+//            var toYear = document.getElementById("");
+
+//            var strtoYear = toYear.options[toYear.selectedIndex].text;
+
+//            var fromYear = document.getElementById("");
+
+//            var strfromYear = fromYear.options[fromYear.selectedIndex].text;
+
+//            if ((strtoYear - strfromYear) > 2) {
+//                alert('Year Difference Should Not Be Greater Than 2');
+//                return false;
+//            }
+//            return true;
+//        }
+
+    </script>
+    <script src="Scripts/jquery-3.2.1.min.js" type="text/javascript"></script>
+  
+        <script type="text/javascript">
+            $(function () {
+                blinkeffect('#lnkblnk');
+            })
+            function blinkeffect(selector) {
+                $(selector).fadeOut('slow', function () {
+                    $(this).fadeIn('slow', function () {
+                        blinkeffect(this);
+                    });
+                });
+            }
+            $(function () {
+                blinkeffect('#lnkblnk1');
+            })
+            function blinkeffect(selector) {
+                $(selector).fadeOut('slow', function () {
+                    $(this).fadeIn('slow', function () {
+                        blinkeffect(this);
+                    });
+                });
+            }
+    </script>
+<style type="text/css">
+	.mnuSearchType_0 { background-color:white;visibility:hidden;display:none;position:absolute;left:0px;top:0px; }
+	.mnuSearchType_1 { color:Black;font-family:Verdana;font-size:16px;text-decoration:none; }
+	.mnuSearchType_2 { color:Black;font-family:Verdana;font-size:16px;width:256px; }
+	.mnuSearchType_3 { color:White;font-family:Verdana;font-size:Smaller; }
+	.mnuSearchType_4 { background-color:SteelBlue;width:250px;padding:10px 5px 10px 5px; }
+	.mnuSearchType_5 { width:250px;padding:5px 5px 5px 5px; }
+	.mnuSearchType_6 { color:White;font-family:Verdana;font-size:Smaller;font-weight:normal; }
+	.mnuSearchType_7 { background-color:Olive;width:250px;padding:10px 5px 10px 5px; }
+	.mnuSearchType_8 { color:Black;font-weight:bold; }
+	.mnuSearchType_9 { color:Black;font-weight:bold;width:250px; }
+
+</style></head>
+<body style="background-position: 0% 0%; background-repeat: repeat; background-attachment: scroll;
+    color: BLACK;">
+    
+    <form name="form1" method="post" action="./" onsubmit="javascript:return WebForm_OnSubmit();" id="form1" autocomplete="off">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=lyzNnMM_5Y8e8T2vO9JIWz2_UxbT_s3tBwOYW-dEWi_XSlchVyNhZAKofNg4AwV0ODpWQeKcCvWumD8SzQma0Fvm-JrGdTPGmFv5IO6L6ps1&amp;t=636042918074468324" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=ySzRFIoNRHLu_sz2IY8_8xrAI9BS_tPWyQV2ajKyNQcGceP7a28TdCo_gzk-rrNvw2y7ojiN8QkEVo8vF1qPJlNMzsLq3dWSYVMwWk4dQmOgCbQbT8RMAqrHucRknoz299MkP_JHQBKUyMkOMJZLGw2&amp;t=6fcc34b3" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=MabuI1S_Y1QA-f08NLzht43F_P17LWSq8lEeJV6V7NjU74xg5tfBMnc8g7UK-EitMuPsGNM_HEa73k-eUeqeYggO4kafdwZRXcGpVSn6JkysIV584Nt8KIP5D45KLwnd7zShSy9Qj6-PqaYKZBbTpBkcLpitCdvvumBRvTrbYAE1&amp;t=6fcc34b3" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=VlMklX7Cm8E1WuiGOwEh9oapnRQ4deAPNnHvHfGk5QS2FlhipQdNMR9PPrnFp8UHfm9HnhzjraAOKqVTBn4Y8A1RSbYBAmrrhRlhdV6yY1Zww_7LbOYZXGFii2OL4CTDUpMqv_EGvKmxloQ5GZNQgmwonRPKUb2BVZjho5MGZ0w1&amp;t=ffffffffc7ae6e38" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=44p_Y3Uegg5yenD7FYMlveDkw6PxqT0u3HUYEFlreb8ue-1JkBE6nrGsGFQIBLaURq3w03P1lfyycyMK8Xl7NlbJGrtJ3dZPODFjlELgAwEdqaEC7Bd2-V5L49k-_MSs7jFWubTiCmWfdSWzyLL_Dt3qiRRb84vimbP1_dDxNM9x0bIutE0IR4zo1-mbeRRp0&amp;t=ffffffffc7ae6e38" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+</script>
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="BE9F1233">
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="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">
+</div>
+    <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ScriptManager1', 'form1', ['tUpMain','','tupRegistrationGrid','','tupReportSearch',''], [], [], 36000, '');
+//]]>
+</script>
+
+    <center>
+        <div style="border: 1px solid black; width: 1024px">
+            <center>
+                <img src="Images/Header1.jpg" style="text-align: center; width: 1024px; height: 96px" alt="">
+                <table style="width: 1024px;">
+                    <tbody><tr>
+                        <td style="width: 150px; color: black; font-family: Verdana; font-size: 10pt">
+                            Todays Total Users :<span id="lblTodaysUser" style="color:Red;font-size:10pt;font-weight:normal;">12118</span>
+                                <br>
+                            Online Users(App22) :<span id="lblOnlineUser" style="color:Red;font-size:10pt;font-weight:normal;">188</span>
+                        </td>
+                        <td>
+                            <h2 style="text-align: center; margin-top: 0px; margin-bottom: 0px; color: rgb(128, 187, 91);
+                                font-size: 20pt">
+                                eSearch/ई-सर्च</h2>
+                        </td>
+                        <td style="width: 200px; font-family: Verdana;">
+                            <span id="lblVisitorNo" style="color:Black;font-family: Verdana; font-size: 10pt">Number of Visitors :</span>
+                            <span id="lblHitCount" style="color:Red;font-size:10pt;">338756238</span>
+                            <span id="lblSince" style="font-family: Verdana; font-size: 10pt">(Since 1 Feb 2013)</span>
+                        </td>
+                    </tr>
+
+                
+                  <tr>
+                        <td colspan="3">
+                            <div class="menu">
+                                <div id="cssmenu" style="float: left; height: 37px; width: 1082px;">
+                                    <ul>
+                                        
+                                        <li style="float:right;"><a href="UserGuide.htm" target="_blank"><span>User Guide</span></a></li>
+                                        <li class="last" style="float:right;"><a href="FAQ.html" target="_blank"><span>FAQ</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        
+                        <td>
+                            
+
+                       
+                        </td>
+                        <td>
+                        </td>
+                        <td style="text-align: right;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <div id="square" style="background-color: #DFEDFE; color: black; font-style: normal;
+                                font-family: Verdana; font-size: 10pt; width: 1024px">
+                               <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();"> First time in the Country!!! 
+           
+                Data of Registrations done is updated in Real Time to eSearch. 
+            
+                         
+                Please check just before transactions to prevent frauds.</marquee> 
+
+			
+                            </div>
+                        </td>
+                    </tr>
+                </tbody></table>
+                
+            </center>
+            <div style="width: 1024px; margin-top: 5px;">
+                <div>
+                            
+                            </div><table id="tblmain" style="width: 1024px; vertical-align: top;">
+                    <tbody><tr>
+                        <td id="Td1" style="margin-top: 0px; vertical-align: top; text-align: left; font-family: Verdana;
+                            border: 1px solid green; border-radius: 13px; width: 260px">
+                            <a href="#mnuSearchType_SkipLink"><img alt="Skip Navigation Links" src="/WebResource.axd?d=q6JuLV7_RA1CEcZ20NuBfj_3JegbXL5HqA5YQyP4Md4qPXQV1HAAM-gP-Z1Q7R_sU_aUk4IG2YfbKW7CEEjpOnmVBidf6_cBKnsBJo94xQ41&amp;t=636042918074468324" width="0" height="0" style="border-width:0px;"></a><table id="mnuSearchType" class="mnuSearchType_5 mnuSearchType_2" cellpadding="0" cellspacing="0" border="0" style="background-color: transparent; text-align: left">
+	<tbody><tr onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" title="Search By Property Details" id="mnuSearchTypen0">
+		<td><table class="mnuSearchType_4 mnuSearchType_7" cellpadding="0" cellspacing="0" border="0" width="100%">
+			<tbody><tr>
+				<td style="white-space:nowrap;width:100%;"><a class="mnuSearchType_1 mnuSearchType_3 mnuSearchType_6" href="javascript:__doPostBack('mnuSearchType','1')">मिळकत निहाय/Property Details</a></td>
+			</tr>
+		</tbody></table></td>
+	</tr><tr style="height:5px;">
+		<td></td>
+	</tr><tr style="height:5px;">
+		<td></td>
+	</tr><tr onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(event)" title="Search By Document Number" id="mnuSearchTypen1">
+		<td><table class="mnuSearchType_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+			<tbody><tr>
+				<td style="white-space:nowrap;width:100%;"><a class="mnuSearchType_1 mnuSearchType_3" href="javascript:__doPostBack('mnuSearchType','3')">दस्त निहाय/Document Number</a></td>
+			</tr>
+		</tbody></table></td>
+	</tr><tr style="height:5px;">
+		<td></td>
+	</tr>
+</tbody></table><a id="mnuSearchType_SkipLink"></a>
+                            
+                            
+                            <div>
+                                <table>
+                                    <tbody><tr>
+                                        <td style="width: 180px">
+                                            <div onmouseover="this.stop();" onmouseout="this.start();" style="background-color: White;
+                                                font-size: 10pt; font-family: verdana; height: 100px; border: 2px solid #4682B4;
+                                                border-radius: 14px; background-color: #DFEDFE;">
+                                                <marquee style="height: 90px" scrollamount="1" behavior="scroll" direction="up" onmouseover="this.stop();" onmouseout="this.start();"> 
+                                           
+                                             <p style="color:Maroon"> Now 1985-2002 data is also available for search for selected offices.</p>  
+                                         
+                                         <p style="color:Maroon"> Now Filing,eFiling &amp; eRegistration data is also available for search.</p>    For IE users please add compatibility view settings.</marquee>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            &nbsp;
+                                        </td>
+                                    </tr>
+                                </tbody></table>
+                            </div>
+                        </td>
+
+                        <td style="margin-top: 0px; vertical-align: top; text-align: left; border: 1px solid green;
+                            border-radius: 13px; width: 250px">
+                            <div id="UpMain" style="vertical-align: top">
+	
+                                    
+                                            <table style="background-image: none; background-color: transparent; font-weight: normal;
+                                                font-size: 12px; font-family: Verdana; width: 250px;">
+                                                <tbody><tr>
+                                                    <td colspan="3" style="font-weight: bold; vertical-align: top; height: 2px; text-align: left;">
+                                                        <span id="lblPropertyDetails" style="display:inline-block;font-weight:bold;width:227px;"> मिळकत तपशील/Property Details</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 149px; background-color: transparent; text-align: left; height: 30px;">
+                                                        &nbsp;<span id="lblyear">सन./Year</span>
+                                                    </td>
+                                                    <td style="width: 362px; background-image: none; background-color: transparent; text-align: left;
+                                                        height: 30px;">
+                                                        <select name="ddlFromYear" id="ddlFromYear" style="font-family:Mangal;font-size:13px;height:24px;width:200px;">
+		<option value="2019">2019</option>
+		<option value="2018">2018</option>
+		<option value="2017">2017</option>
+		<option value="2016">2016</option>
+		<option value="2015">2015</option>
+		<option value="2014">2014</option>
+		<option value="2013">2013</option>
+		<option value="2012">2012</option>
+		<option value="2011">2011</option>
+		<option value="2010">2010</option>
+		<option value="2009">2009</option>
+		<option value="2008">2008</option>
+		<option value="2007">2007</option>
+		<option value="2006">2006</option>
+		<option value="2005">2005</option>
+		<option value="2004">2004</option>
+		<option value="2003">2003</option>
+		<option value="2002">2002</option>
+		<option value="2001">2001</option>
+		<option value="2000">2000</option>
+		<option value="1999">1999</option>
+		<option value="1998">1998</option>
+		<option value="1997">1997</option>
+		<option value="1996">1996</option>
+		<option value="1995">1995</option>
+		<option value="1994">1994</option>
+		<option value="1993">1993</option>
+		<option value="1992">1992</option>
+		<option value="1991">1991</option>
+		<option value="1990">1990</option>
+		<option value="1989">1989</option>
+		<option value="1988">1988</option>
+		<option value="1987">1987</option>
+		<option value="1986">1986</option>
+		<option value="1985">1985</option>
+
+	</select>
+                                                    </td>
+                                                    <td colspan="1" style="height: 30px; width: 86px;">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 149px; text-align: left;">
+                                                        &nbsp;
+                                                    </td>
+                                                    <td style="text-align: left; width: 362px;">
+                                                        
+                                                        
+                                                        <span id="YearMsg" style="color:Red;font-size:12px;"></span>
+                                                        
+                                                    </td>
+                                                    <td colspan="1" style="width: 86px">
+                                                        
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="height: 26px; text-align: left; width: 149px;">
+                                                        <span id="lblDistrict">जिल्हा/District</span>
+                                                    </td>
+                                                    <td colspan="1" style="height: 26px; text-align: left; width: 362px;">
+                                                        <select name="ddlDistrict" onchange="javascript:setTimeout('__doPostBack(\'ddlDistrict\',\'\')', 0)" id="ddlDistrict" style="font-family:Mangal;font-size:13px;height:24px;width:200px;">
+		<option selected="selected" value="---Select District----">---Select District----</option>
+		<option value="1">पुणे</option>
+		<option value="2">सातारा</option>
+		<option value="3">सांगली</option>
+		<option value="4">कोल्हापूर</option>
+		<option value="5">सोलापूर</option>
+		<option value="6">ठाणे</option>
+		<option value="7">रायगड</option>
+		<option value="8">रत्नागिरी</option>
+		<option value="9">सिंधुदुर्ग</option>
+		<option value="10">नाशिक</option>
+		<option value="11">जळगाव</option>
+		<option value="12">धुळे</option>
+		<option value="13">अहमदनगर</option>
+		<option value="14">औरंगाबाद</option>
+		<option value="15">जालना</option>
+		<option value="16">बीड</option>
+		<option value="17">लातूर</option>
+		<option value="18">नांदेड</option>
+		<option value="19">परभणी</option>
+		<option value="20">उस्मानाबाद</option>
+		<option value="21">अमरावती</option>
+		<option value="22">यवतमाळ</option>
+		<option value="23">अकोला</option>
+		<option value="24">बुलढाणा</option>
+		<option value="25">नागपूर</option>
+		<option value="26">वर्धा</option>
+		<option value="27">चंद्रपूर</option>
+		<option value="28">भंडारा</option>
+		<option value="29">गडचिरोली</option>
+		<option value="30">मुंबई जिल्हा</option>
+		<option value="31">मुंबई उपनगर जिल्हा</option>
+		<option value="32">गोंदिया</option>
+		<option value="33">वाशिम</option>
+		<option value="34">हिंगोली</option>
+		<option value="35">नंदुरबार</option>
+		<option value="1001">महाराष्ट्रातील इतर जिल्हे</option>
+		<option value="1002">महाराष्ट्र सोडून इतर जिल्हे</option>
+		<option value="6001">पालघर</option>
+
+	</select>
+                                                    </td>
+                                                    <td colspan="1" style="width: 86px; height: 26px;">
+                                                        <span id="rfvddlDistrict" style="color:Red;display:none;">*</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="height: 23px; text-align: left; width: 149px; vertical-align: top;">
+                                                        <span id="lblVillageName" style="display:inline-block;width:120px;"> गावाचे नाव भरा/Enter Village Name</span>
+                                                    </td>
+                                                    <td colspan="1" style="height: 23px; text-align: left; width: 362px;">
+                                                        <input name="txtAreaName" type="text" onchange="javascript:setTimeout('__doPostBack(\'txtAreaName\',\'\')', 0)" onkeypress="if (WebForm_TextBoxKeyHandler(event) == false) return false;" id="txtAreaName" title="Enter Minimum three characters in English." style="width:200px;">
+                                                        <span style="font-weight: normal; font-size: x-small; float: none; word-spacing: 0px;
+                                                            text-transform: none; text-indent: 0px; line-height: 18px; white-space: normal;
+                                                            letter-spacing: normal; orphans: 2; widows: 2;">
+                                                            <br>
+                                                            <div style="color: red;">
+                                                                Enter Minimum one characters in English</div>
+                                                            <span id="RegularExpressionValidator1" style="display:inline-block;color:Red;width:236px;visibility:hidden;">Please Enter Village Name Correctly</span></span>
+                                                    </td>
+                                                    <td colspan="1" style="width: 86px; height: 23px; vertical-align: top; text-align: left;">
+                                                        <span id="rfvtxtAreaName" style="color:Red;visibility:hidden;">*</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align: left; width: 149px; height: 32px;">
+                                                        <span id="lblSelectVillage">गाव निवडा/Select Village</span>
+                                                    </td>
+                                                    <td colspan="1" style="text-align: left; width: 362px; height: 32px;">
+                                                        <select name="ddlareaname" id="ddlareaname" style="font-family:Mangal;font-size:13px;height:24px;width:200px;">
+		<option selected="selected" value="-----Select Area----">-----Select Area----</option>
+
+	</select>
+                                                    </td>
+                                                    <td colspan="1" style="width: 86px; height: 32px">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3">
+                                                        <table style="font-weight: normal; font-size: 12px; font-family: 'Verdana', Serif;
+                                                            width: 334px;">
+                                                            <tbody><tr>
+                                                                <td style="vertical-align: top; text-align: left; height: 1px; width: 20px;">
+                                                                    <span id="lblproptyno" style="display:inline-block;width:163px;">मिळकत क्रमांक/Property No.</span>
+                                                                </td>
+                                                                <td style="vertical-align: top; text-align: left; height: 1px; width: 56px;">
+                                                                    <input name="txtAttributeValue" type="text" id="txtAttributeValue" class="Label" style="width:150px;">
+                                                                </td>
+                                                                <td style="vertical-align: top; text-align: left; width: 22px; height: 1px;">
+                                                                    <span id="ReqPropno" style="color:Red;visibility:hidden;">*</span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="3">
+                                                                    <div style="color: red; font-size: x-small; font-weight: normal; font-size: 12px;
+                                                                        font-family: 'Verdana', Serif;">
+                                                                        (Enter SurveyNo./CTSNo./MilkatNo./GatNo./PlotNo.)</div>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td colspan="3">
+                                                                    <hr style="border:1px solid black;">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="3">
+                                                                    <p>If you want to search eFilling data by name search then type both first &amp; last name in english(Capital letters) otherwise for other results type both first &amp; last name in marathi.<span style="color: red;">(Optional parameters) </span></p>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                                     <td style="text-align: left">
+                                                                        <span id="proptype">Select Type :</span>
+                                                                    </td>
+                                                                    <td colspan="2" style="text-align: left; ">
+                                                                        <table id="propdoctype" border="0" style="font-size:10pt;">
+		<tbody><tr>
+			<td><input id="propdoctype_0" type="radio" name="propdoctype" value="1"><label for="propdoctype_0">eFiling Result</label></td><td><input id="propdoctype_1" type="radio" name="propdoctype" value="2"><label for="propdoctype_1">Regular Result</label></td>
+		</tr>
+	</tbody></table>
+                                                                    </td>
+                                                                    
+                                                            </tr>
+                                                           
+                                                             <tr>
+                                                                <td></td>
+                                                                <td colspan="2">
+                                                                    <span id="errormsg" style="color:Red;font-size:12px;"></span>
+                                                                </td>
+                                                            </tr>
+                                                             <tr>
+                                                                <td>
+                                                               
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                 <td>
+                                                                   
+                                                                </td>
+                                                                <td style="vertical-align: top; text-align: left; height: 1px; width: 20px;">
+                                                                    <span id="Label6" style="display:inline-block;width:163px;">First name</span>
+                                                                </td>
+                                                                <td style="vertical-align: top; text-align: left; height: 1px; width: 20px;">
+                                                                    <span id="Label14" style="display:inline-block;width:163px;">Last name</span>
+                                                                </td>
+                                                                
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="vertical-align: top; text-align: left; height: 1px; width: 20px;">
+                                                                    <span id="Label15" style="display:inline-block;width:163px;">Buyer/Seller name:</span>
+                                                                </td>
+                                                                <td style="vertical-align: top; text-align: left; height: 1px; width: 56px;">
+                                                                    <input name="txtfirstname" type="text" id="txtfirstname" class="Label" placeholder="Enter First Name" style="width:150px;">
+                                                                </td>
+                                                                <td style="vertical-align: top; text-align: left; height: 1px; width: 56px;">
+                                                                    <input name="txtlastname" type="text" id="txtlastname" class="Label" placeholder="Enter Last Name" style="width:150px;">
+                                                                </td>
+                                                                                                                            
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td colspan="2">
+                                                                    <a href="https://www.google.com/intl/mr/inputtools/try/" target="_blank">Link for Marathi Typing</a>
+                                                                </td>
+                                                            </tr>
+                                                              <tr>
+                                                                <td colspan="3">
+                                                                    <hr style="border:1px solid black;">
+                                                                </td>
+                                                            </tr>
+                                                            
+                                                            <tr style="height: 50px">
+                                                                <td>
+                                                                    <img id="imgCaptcha" src="Handler.ashx?txt=7e0051" style="border-width:0px;">
+                                                                    
+                                                                </td>
+                                                                <td align="left">
+                                                                    <input name="txtImg" type="text" id="txtImg" placeholder="Enter captcha as shown" style="width:166px;">
+                                                                    <span id="RequiredFieldValidator3" style="color:Red;display:none;">*</span>
+                                                                    
+                                                                </td>
+                                                                <td>
+                                                                    <span id="lblimg" style="color:Red;font-size:12px;"></span>
+
+                                                                    
+
+                                                                    
+                                                                    
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td align="center" style="vertical-align: top; width: 100px;">
+                                                                    <input type="submit" name="btnCancel" value=" रद्द " id="btnCancel" class="Button" style="font-weight:normal;height:24px;width:70px;">
+                                                                </td>
+                                                                <td style="vertical-align: top; width: 100px;" align="center">
+                                                                    <input type="submit" name="btnSearch" value="शोध" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;btnSearch&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="btnSearch" class="Button" style="font-weight:normal;height:24px;width:70px;background-repeat: no-repeat">
+                                                                    <span id="YearMsg2" style="color:Red;font-size:12px;"></span>
+                                                                    
+                                                                </td>
+                                                                <td>
+                                                                    <input type="submit" name="btnCerSai" value="CERSAI Search" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;btnCerSai&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="btnCerSai" class="Button" style="height:24px;">
+                                                                </td>
+                                                                <td style="vertical-align: top; width: 120px;" align="left">
+                                                                    
+                                                                    
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                </td>
+                                                                <td>
+                                                                    <div id="UpdateProgress1" style="display:none;" role="status" aria-hidden="true">
+		
+                                                                            <span style="font-size: 11pt; background-attachment: fixed; background-repeat: no-repeat;
+                                                                                font-family: Verdana">
+                                                                                <img src="Images/ajax-loader1.gif" style="width: 67px">Please Wait.....</span>
+	</div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td align="center" style="vertical-align: top;" colspan="3">
+                                                                    
+                                                                    <br>
+                                                                    
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td align="center" style="vertical-align: top; width: 100px;">
+                                                                    &nbsp;
+                                                                </td>
+                                                                <td align="center" style="vertical-align: top; width: 100px;">
+                                                                    &nbsp;
+                                                                </td>
+                                                                <td align="left" style="vertical-align: top; width: 120px;">
+                                                                    &nbsp;
+                                                                </td>
+                                                            </tr>
+                                                        </tbody></table>
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        
+                                
+</div>
+                        </td>
+                        <td style="vertical-align: top; text-align: left; border: 1px solid green; width: 280px">
+                            <div style="height: 300px; overflow-y: scroll">
+                                <table style="font-weight: normal; font-size: 13px; font-family: 'Times New Roman', Serif;
+                                    text-align: right;">
+                                    <tbody><tr>
+                                        <td style="background-image: none; vertical-align: top; text-align: left; color: black;
+                                            font-weight: bold">
+                                            सुचना -
+                                            </td></tr><tr></tr>
+					                         <tr></tr>
+					                          <tr>
+                                                <td style="background-image: none; vertical-align: top; text-align: left; height: 27px;font-size: 16px;">
+                                                 All physically available data at SR offices from 1985 is available online for Mumbai city and Suburb districts
+                                                </td>
+                                            </tr>
+                                            
+
+                                           
+                                            
+                                </tbody></table>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="vertical-align: top; text-align: left; font-family: Verdana;
+                            width: 900px">
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="vertical-align: top; text-align: center; font-family: Verdana;
+                            width: 1020px;">
+                            <div style="vertical-align: top; text-align: center; font-family: Verdana; width: 1020px overflow-x: scroll">
+                                <table>
+                                    <tbody><tr>
+                                        <td>
+                                           <div id="upRegistrationGrid">
+	
+                                                    
+                                               
+</div>
+                                            <div id="upReportSearch">
+	
+                                                    
+                                                
+</div>
+                                        </td>
+                                    </tr>
+                                </tbody></table>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        </tr><tr>
+                                <td colspan="3">
+                                    Links: 
+                                        <a href="http://eqjcourts.gov.in" target="_blank"><span id="ContentPlaceHolder1_lbleDisnicRevCourtCases" title="Revenue Court cases information">eqjcourts</span> </a>
+                                        || <a href="https://districts.ecourts.gov.in/maharashtra" target="_blank"><span id="ContentPlaceHolder1_lbleCourtCasesInfo" title="Court cases information">
+                                                eCourt</span> </a>|| <a href="https://ptaxportal.mcgm.gov.in/CitizenPortal/#/login" target="_blank"><span id="ContentPlaceHolder1_lbleMCGM" title="Note: The above link is not under the jurisdiction of IGR. IGR is not responsible for the information available on https://prcvs.mcgm.gov.in/">
+                                                    Check property tax dues for properties under Municipal Corporation of Greater Mumbai
+                                                    (MCGM) </span></a>|| <a href="https://www.cersai.org.in/" target="_blank"><span id="ContentPlaceHolder1_lbleCERSAI" title="Central Registry of Securitisation Asset Reconstruction and Security Interest of India">
+                                                        Check CERSAI for Security Interest created by Banks &amp; Financial Institutions on
+                                                        your Property</span> </a>
+                                </td>
+                            </tr>
+                            
+                        
+                    
+                    <tr>
+                        <td colspan="3" style="vertical-align: top; text-align: left; font-family: Verdana;">
+                            <table style="font-weight: normal; font-size: 13px; font-family: 'Times New Roman', Serif;
+                                text-align: left;">
+                                <tbody><tr>
+                                    <td style="background-image: none; text-align: left;">
+                                        <hr style="height: 3px; background-color: #0099cc;" id="HR2">
+                                        <span style="font-size: 9pt; font-family: Verdana; text-align: center;"><strong style="text-align: center">
+                                            DISCLAIMER </strong>:Information owned, maintained and updated by : Dept. Of Registration
+                                            &amp; Stamps,Maharashtra.All queries/Comments regarding the contents may be sent
+                                            at IGR, Pune(M.S.)<br>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="background-image: none; text-align: center; font-family: Verdana;">
+                                        &nbsp;Send us feedback on&nbsp;
+                                        <span id="Label2" style="font-size:X-Small;font-weight:bold;font-style: italic">feedback[at]igrmaharashtra[dot]gov[dot]in</span>.
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="vertical-align: top; text-align: left; font-family: Verdana;">
+                            
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            
+                            
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="vertical-align: top; text-align: left; font-family: Verdana;">
+                            
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                               <input type="hidden" name="FS_PropertyNumber" id="FS_PropertyNumber">
+                                <input type="hidden" name="FS_IGR_FLAG" id="FS_IGR_FLAG">
+                        </td>
+                    </tr>
+                </tbody></table>
+                
+            </div>
+        </div>
+    </center>
+    
+<script type="text/javascript">
+//<![CDATA[
+var Page_Validators =  new Array(document.getElementById("rfvddlDistrict"), document.getElementById("RegularExpressionValidator1"), document.getElementById("rfvtxtAreaName"), document.getElementById("ReqPropno"), document.getElementById("RequiredFieldValidator3"));
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+var rfvddlDistrict = document.all ? document.all["rfvddlDistrict"] : document.getElementById("rfvddlDistrict");
+rfvddlDistrict.controltovalidate = "ddlDistrict";
+rfvddlDistrict.focusOnError = "t";
+rfvddlDistrict.errormessage = "---Select District----";
+rfvddlDistrict.display = "Dynamic";
+rfvddlDistrict.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+rfvddlDistrict.initialvalue = "---Select District----";
+var RegularExpressionValidator1 = document.all ? document.all["RegularExpressionValidator1"] : document.getElementById("RegularExpressionValidator1");
+RegularExpressionValidator1.controltovalidate = "txtAreaName";
+RegularExpressionValidator1.errormessage = "Please Enter Village Name Correctly";
+RegularExpressionValidator1.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+RegularExpressionValidator1.validationexpression = "[a-zA-Z]{1,}";
+var rfvtxtAreaName = document.all ? document.all["rfvtxtAreaName"] : document.getElementById("rfvtxtAreaName");
+rfvtxtAreaName.controltovalidate = "txtAreaName";
+rfvtxtAreaName.focusOnError = "t";
+rfvtxtAreaName.errormessage = "Enter Area Name";
+rfvtxtAreaName.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+rfvtxtAreaName.initialvalue = "";
+var ReqPropno = document.all ? document.all["ReqPropno"] : document.getElementById("ReqPropno");
+ReqPropno.controltovalidate = "txtAttributeValue";
+ReqPropno.focusOnError = "t";
+ReqPropno.errormessage = "Enter Property No.";
+ReqPropno.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ReqPropno.initialvalue = "";
+var RequiredFieldValidator3 = document.all ? document.all["RequiredFieldValidator3"] : document.getElementById("RequiredFieldValidator3");
+RequiredFieldValidator3.controltovalidate = "txtImg";
+RequiredFieldValidator3.display = "Dynamic";
+RequiredFieldValidator3.validationGroup = "aa";
+RequiredFieldValidator3.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+RequiredFieldValidator3.initialvalue = "";
+//]]>
+</script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+var mnuSearchType_Data = new Object();
+mnuSearchType_Data.disappearAfter = 500;
+mnuSearchType_Data.horizontalOffset = 0;
+mnuSearchType_Data.verticalOffset = 0;
+mnuSearchType_Data.staticHoverClass = 'mnuSearchType_9';
+mnuSearchType_Data.staticHoverHyperLinkClass = 'mnuSearchType_8';
+mnuSearchType_Data.iframeUrl = '/WebResource.axd?d=PHueEp1ZXYPUxY77PNiopM7Oj9lvhkeoIsgDbSD7pM07qS2gfO1cfxc2ETCAbo2G2xJpP5hJB9hURueBFkwHfHzLWV46fUewVXJH5EDNkdM1&t=636042918074468324';
+
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        
+document.getElementById('rfvddlDistrict').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('rfvddlDistrict'));
+}
+
+document.getElementById('RegularExpressionValidator1').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('RegularExpressionValidator1'));
+}
+
+document.getElementById('rfvtxtAreaName').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('rfvtxtAreaName'));
+}
+
+document.getElementById('ReqPropno').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ReqPropno'));
+}
+
+document.getElementById('RequiredFieldValidator3').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('RequiredFieldValidator3'));
+}
+Sys.Application.add_init(function() {
+    $create(Sys.UI._UpdateProgress, {"associatedUpdatePanelId":null,"displayAfter":100,"dynamicLayout":true}, null, null, $get("UpdateProgress1"));
+});
+//]]>
+</script>
+</form>
+
+
+</body></html>
